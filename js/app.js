@@ -10,6 +10,7 @@ function UI() {}
 
 //llena las opciones de los anos
 // como no usaremos this, entonces podemos usar arrow function
+// funcion que genera HTML y agrega los anhos
 UI.prototype.llenarOpciones = () => {
   const max = new Date().getFullYear(),
     min = max - 20;
@@ -34,5 +35,7 @@ const ui = new UI();
 console.log(ui);
 
 //! EVENT LISTENER
-document.addEventListener("DOMContentLoaded", () => {});
+document.addEventListener("DOMContentLoaded", () => {
+  ui.llenarOpciones(); // llena el select con los anhos...
+});
 //! FUNCIONES
