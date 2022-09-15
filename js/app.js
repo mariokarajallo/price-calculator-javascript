@@ -48,5 +48,20 @@ function eventListener() {
 
 function cotizarSeguro(e) {
   e.preventDefault();
-  console.log("cotizando..");
+
+  // leer el valor de la marca seleccionada
+  const marca = document.querySelector("#marca").value;
+
+  // leer el anho seleccionado
+  const year = document.querySelector("#year").value;
+
+  // leer el tipo de cobertura
+  const tipo = document.querySelector('input[name="tipo"]:checked').value;
+
+  //si cualuiera de los campos esta vacio entonces...
+  if (marca === "" || year === "" || tipo === "") {
+    console.log("no paso la validacion");
+  } else {
+    console.log("si paso la validacion");
+  }
 }
