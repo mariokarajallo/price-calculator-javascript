@@ -38,4 +38,15 @@ console.log(ui);
 document.addEventListener("DOMContentLoaded", () => {
   ui.llenarOpciones(); // llena el select con los anhos...
 });
-//! FUNCIONES
+
+eventListener();
+function eventListener() {
+  //seleccionamos el boton principal y agregamos una funcion a su evento submit
+  const formulario = document.querySelector("#cotizar-seguro");
+  formulario.addEventListener("submit", cotizarSeguro);
+}
+
+function cotizarSeguro(e) {
+  e.preventDefault();
+  console.log("cotizando..");
+}
