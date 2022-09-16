@@ -49,6 +49,11 @@ UI.prototype.mostrarMensaje = (mensaje, tipo) => {
   //insertar en el HTML, antes seleccianamos el formulario que es donde queremos insertar nuestro DIV
   const formulario = document.querySelector("#cotizar-seguro");
   formulario.insertBefore(div, document.querySelector("#resultado"));
+
+  //elimina el mensaje despues de 2seg luego de mostrarlo en pantalla
+  setTimeout(() => {
+    div.remove();
+  }, 2000);
 };
 
 //instanciar UI
@@ -83,7 +88,7 @@ function cotizarSeguro(e) {
   if (marca === "" || year === "" || tipo === "") {
     // pasamos a nuestro prototipo el mensaje y el tipo de error
     ui.mostrarMensaje("todos los campos son obligatarios", "error");
-  } else {
-    console.log("si paso la validacion");
+    return; //return para que evitar que ejecute lo que sigue, si no se pasa la validacion
   }
+  ui.mostrarMensaje("cotizando...", "exito");
 }
