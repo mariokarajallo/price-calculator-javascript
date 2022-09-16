@@ -30,6 +30,27 @@ UI.prototype.llenarOpciones = () => {
   }
 };
 
+// muestra alertas en la pantalla
+UI.prototype.mostrarMensaje = (mensaje, tipo) => {
+  //creamos el elemento DIV para asignar un mensaje
+  const div = document.createElement("div");
+
+  //tenemos dos tipos de mensajes ERROR & CORRECTO (estilos CSS), agregamos la CLASE a nuestro DIV
+  if (tipo === "error") {
+    div.classList.add("error"); //agregamos el estilo de la clase error
+  } else {
+    div.classList.add("correcto"); // agregamos el estilo de la clase correcto
+  }
+  div.classList.add("mensaje", "mt-10");
+
+  // asignamos un mensaje al DIV
+  div.textContent = mensaje; // asignamos el mensaje que recivimos como parametro
+
+  //insertar en el HTML, antes seleccianamos el formulario que es donde queremos insertar nuestro DIV
+  const formulario = document.querySelector("#cotizar-seguro");
+  formulario.insertBefore(div, document.querySelector("#resultado"));
+};
+
 //instanciar UI
 const ui = new UI();
 console.log(ui);
@@ -58,9 +79,10 @@ function cotizarSeguro(e) {
   // leer el tipo de cobertura
   const tipo = document.querySelector('input[name="tipo"]:checked').value;
 
-  //si cualuiera de los campos esta vacio entonces...
+  //si cualquiera de los campos esta vacio entonces...
   if (marca === "" || year === "" || tipo === "") {
-    console.log("no paso la validacion");
+    // pasamos a nuestro prototipo el mensaje y el tipo de error
+    ui.mostrarMensaje("todos los campos son obligatarios", "error");
   } else {
     console.log("si paso la validacion");
   }
