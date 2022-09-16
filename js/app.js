@@ -4,21 +4,59 @@ function Seguro(marca, year, tipo) {
   this.year = year;
   this.tipo = tipo;
 }
-// prototype de la funcion Seguro
+//? prototype de la funcion Seguro
 // realiza la cotizacion con los datos cargado por el usuario
 Seguro.prototype.cotizarSeguro = function () {
   /*
-  referencia para recargar el seguro
-  1= americano 1.15
-  2= asiatico 1.05
-  3= europeo 1.35
+  referencia para incrementar el valor del el seguro
+    1= americano 1.15
+    2= asiatico 1.05
+    3= europeo 1.35
   */
+  let cantidad;
+  const base = 2000; // base del seguro de auto
+
+  //basado en el tipo de automovil(marca) el costo sera mayor o menor
+  switch (this.marca) {
+    case "1":
+      cantidad = base * 1.15;
+      break;
+    case "2":
+      cantidad = base * 1.05;
+      break;
+    case "3":
+      cantidad = base * 1.35;
+      break;
+    default:
+      break;
+  }
+
+  //leer el año: obtenemos el ano actual y restamos con el ano seleccionado en el formulario
+  const diferencia = new Date().getFullYear() - this.year;
+
+  // cada año que la diferencia es mayor, el costo va a reducirse un 3% el valor del seguro
+  cantidad -= (diferencia * 3 * cantidad) / 100;
+
+  /*
+    si el seguro es del tipo basico se multiplica por un 30% mas
+    si el seguro es del tipo completo se multiplica por un 50% mas
+  */
+
+  if (this.tipo === "basico") {
+    cantidad *= 1.3;
+  } else {
+    cantidad *= 1.5;
+  }
+
+  // retormos el valor cantidad por que utilizamos para mostrar en el HTML
+  return cantidad;
 };
 
 // a la hora de instanciarlos no pasaremos nada al constructor
 // creamos la funcion por que de otra manera no podremos agregar prototype
 function UI() {}
 
+//? prototype de la funcion UI
 //llena las opciones de los anos
 // como no usaremos this, entonces podemos usar arrow function
 // funcion que genera HTML y agrega los anhos
@@ -106,7 +144,7 @@ function cotizarSeguro(e) {
   // una vez que estamos cotizando debemos pasar los datos cargados para procesar la cotizacion
   // instanciar el seguro (objeto con los datos que le usuario haya cargado)
   const seguro = new Seguro(marca, year, tipo);
-  console.log(seguro);
+  seguro.cotizarSeguro(); // mandamos llamar al prototypo
 
   // utilizar el prototype que va a cotizar
 }
