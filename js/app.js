@@ -165,6 +165,12 @@ function cotizarSeguro(e) {
   }
   ui.mostrarMensaje("cotizando...", "exito");
 
+  //limpiar/eliminar cotizaciones previas
+  const resultado = document.querySelector("#resultado div");
+  if (resultado != null) {
+    resultado.remove();
+  }
+
   // una vez que estamos cotizando debemos pasar los datos cargados para procesar la cotizacion
   // instanciar el seguro (objeto con los datos que le usuario haya cargado)
   const seguro = new Seguro(marca, year, tipo);
