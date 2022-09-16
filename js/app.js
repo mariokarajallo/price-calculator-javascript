@@ -108,6 +108,25 @@ UI.prototype.mostrarMensaje = (mensaje, tipo) => {
 //? prototype de la funcion UI: mostrar el resultado de la cotizacion total
 UI.prototype.mostrarResultado = (total, seguro) => {
   // crear el resultado que muestra en HTML
+  const div = document.createElement("div");
+  div.classList.add("mt-10");
+  //.innerHTML : para agregar texto + html
+  div.innerHTML = `
+   <p class='header'>Tu resultado</p>
+   <p class='font-bold'>Total: ${total}</p>
+   `;
+  // seleccionamos el bloque(div) en donde queremos colocar el total/resultado
+  const resultadoDiv = document.querySelector("#resultado");
+
+  //mostramos el spinner (con la clase oculta en nuestro css)
+  const spinner = document.querySelector("#cargando"); //seleccionamos el spinner
+  spinner.style.display = "block";
+
+  // oculta el spinner luego de 2seg y agrega el resultado en el HTML
+  setTimeout(() => {
+    spinner.style.display = "none"; // ocultar el spinner
+    resultadoDiv.appendChild(div); // se muestra el resultado en el HTML
+  }, 2000);
 };
 
 //instanciar UI
