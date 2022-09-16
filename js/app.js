@@ -107,13 +107,34 @@ UI.prototype.mostrarMensaje = (mensaje, tipo) => {
 
 //? prototype de la funcion UI: mostrar el resultado de la cotizacion total
 UI.prototype.mostrarResultado = (total, seguro) => {
+  // aplicamos un destructuring de los paramentros recibidos
+  const { marca, year, tipo } = seguro;
+
+  // pasamos el valor de marco a su equivalente en texto
+  let nombreMarca;
+  switch (marca) {
+    case "1":
+      nombreMarca = "Americano";
+      break;
+    case "2":
+      nombreMarca = "Asiatico";
+      break;
+    case "3":
+      nombreMarca = "Europeo";
+      break;
+    default:
+      break;
+  }
   // crear el resultado que muestra en HTML
   const div = document.createElement("div");
   div.classList.add("mt-10");
   //.innerHTML : para agregar texto + html
   div.innerHTML = `
    <p class='header'>Tu resultado</p>
-   <p class='font-bold'>Total: ${total}</p>
+   <p class='font-bold'>Marca: <span class='font-normal'>${nombreMarca}</p>
+   <p class='font-bold'>Año: <span class='font-normal'>${year}</p>
+   <p class='font-bold'>Tipo: <span class='font-normal capitalize'>${tipo}</p>
+   <p class='font-bold'>Total: <span class='font-normal'>$ ${total}</p>
    `;
   // seleccionamos el bloque(div) en donde queremos colocar el total/resultado
   const resultadoDiv = document.querySelector("#resultado");
