@@ -4,6 +4,17 @@ function Seguro(marca, year, tipo) {
   this.year = year;
   this.tipo = tipo;
 }
+// prototype de la funcion Seguro
+// realiza la cotizacion con los datos cargado por el usuario
+Seguro.prototype.cotizarSeguro = function () {
+  /*
+  referencia para recargar el seguro
+  1= americano 1.15
+  2= asiatico 1.05
+  3= europeo 1.35
+  */
+};
+
 // a la hora de instanciarlos no pasaremos nada al constructor
 // creamos la funcion por que de otra manera no podremos agregar prototype
 function UI() {}
@@ -91,4 +102,11 @@ function cotizarSeguro(e) {
     return; //return para que evitar que ejecute lo que sigue, si no se pasa la validacion
   }
   ui.mostrarMensaje("cotizando...", "exito");
+
+  // una vez que estamos cotizando debemos pasar los datos cargados para procesar la cotizacion
+  // instanciar el seguro (objeto con los datos que le usuario haya cargado)
+  const seguro = new Seguro(marca, year, tipo);
+  console.log(seguro);
+
+  // utilizar el prototype que va a cotizar
 }
