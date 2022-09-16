@@ -56,7 +56,7 @@ Seguro.prototype.cotizarSeguro = function () {
 // creamos la funcion por que de otra manera no podremos agregar prototype
 function UI() {}
 
-//? prototype de la funcion UI
+//? prototype de la funcion UI: llenar años en el HTML
 //llena las opciones de los anos
 // como no usaremos this, entonces podemos usar arrow function
 // funcion que genera HTML y agrega los anhos
@@ -79,7 +79,7 @@ UI.prototype.llenarOpciones = () => {
   }
 };
 
-// muestra alertas en la pantalla
+//? prototype de la funcion UI: mostrar mensajes de validacion en el HTML
 UI.prototype.mostrarMensaje = (mensaje, tipo) => {
   //creamos el elemento DIV para asignar un mensaje
   const div = document.createElement("div");
@@ -103,6 +103,11 @@ UI.prototype.mostrarMensaje = (mensaje, tipo) => {
   setTimeout(() => {
     div.remove();
   }, 2000);
+};
+
+//? prototype de la funcion UI: mostrar el resultado de la cotizacion total
+UI.prototype.mostrarResultado = (total, seguro) => {
+  // crear el resultado que muestra en HTML
 };
 
 //instanciar UI
@@ -144,7 +149,9 @@ function cotizarSeguro(e) {
   // una vez que estamos cotizando debemos pasar los datos cargados para procesar la cotizacion
   // instanciar el seguro (objeto con los datos que le usuario haya cargado)
   const seguro = new Seguro(marca, year, tipo);
-  seguro.cotizarSeguro(); // mandamos llamar al prototypo
+  const total = seguro.cotizarSeguro(); // mandamos llamar al prototypo que nos devuelve un return = cantidad (valor total del seguro segun campos del formulario)
 
   // utilizar el prototype que va a cotizar
+  // pasaremos al prototypo UI el valor de TOTAL y el los valores del formulario SEGURO
+  ui.mostrarResultado(total, seguro);
 }
