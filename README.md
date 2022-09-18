@@ -1,10 +1,14 @@
-# Price Calculator 🧮🚗
+<div align="center">
+  <h1>Price Calculator 🧮🚗</h1>
+  <sup>Una pequeña app para calcular polizas de seguro de automoviles</sup>
+</div>
 
-_Calculo de seguros para automoviles_
+
+
 -	Seleccionar la Marca de automovil.
 -	Seleccionar el año.
 -	Tipo de poliza (Basico, Completo).
--	Lista el resultado según tipo de poliza, año y marca del automovil.
+-	Lista el resultado y calculo según tipo de poliza, año y marca del automovil.
 
 
 ## Demo 
@@ -15,9 +19,9 @@ Para mirar la demo del proyecto visita: [Price Calculator](https://jsproyecto5.n
 ## **Construido con 🛠️**
 
 
-- [JavaScript](https://www.javascript.com/) - Implementa acciones dentro de la pagina web.
-- [CSS](https://www.w3schools.com/css/) - Para dar estilo a la pagina web.
-- [HTML](https://developer.mozilla.org/es/docs/Web/HTML) - Usado para la estructura del contenido web.
+- [JavaScript](https://www.javascript.com/) - Implementando el uso de prototypes y constructores.
+- [CSS](https://www.w3schools.com/css/) - Para dar estilo a la pagina web y el framework **Tailwind**.
+- [HTML](https://developer.mozilla.org/es/docs/Web/HTML) - Usado para la estructura del contenido web app.
 
 
 ## **Autores ✒️**
