@@ -14,7 +14,7 @@
 ## Demo 
 Para mirar la demo del proyecto visita: [Price Calculator](https://jsproyecto5.netlify.app/)
 
-![preview](price-calculator.webp)
+![preview](price-calculator.gif)
 <br>
 ## **Construido con 🛠️**
 
