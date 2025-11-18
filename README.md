@@ -45,7 +45,7 @@ python3 -m http.server 8000
 
 O usa la extensión Live Server en VSCode para una vista previa en caliente.
 
-**Cómo funciona**
+## Cómo funciona
 
 La app presenta un formulario donde el usuario selecciona:
 
@@ -55,14 +55,13 @@ La app presenta un formulario donde el usuario selecciona:
 
 Al enviar, el script en `js/app.js` calcula el precio base y aplica factores según marca, antigüedad y tipo de póliza. El resultado se muestra con un resumen y un mensaje de estado.
 
-Validaciones
------------
+### Validaciones
 
 - Todos los campos son obligatorios; si falta alguno, se muestra un mensaje de error.
 - El año debe ser un valor entre el año actual y el límite definido por la lógica del proyecto.
 - Se previenen envíos repetidos mostrando un estado de procesamiento mientras se calcula.
 
-**Estructura de archivos**
+## Estructura de archivos
 
 ```bash
 price-calculator-javascript/    # raíz del proyecto
@@ -84,7 +83,7 @@ price-calculator-javascript/    # raíz del proyecto
 - `LICENSE` — Información de la licencia (MIT).
 - `README.md` — Documentación del proyecto.
 
-**Contribuciones**
+## Contribuciones
 
 Si quieres contribuir:
 
@@ -99,12 +98,12 @@ Sugerencias para contribuir:
 - Mejorar accesibilidad del formulario (labels, aria-attributes).
 - Añadir más marcas y una tabla de factores de cálculo.
 
-**Créditos**
+## Créditos
 
 - **Juan Pablo De la Torre Valdez** - Instructor y autor del contenido del curso - [Codigo Con Juan](https://codigoconjuan.com/).
 - **Mario Karajallo** - Implementación del proyecto y mantenimiento - [Mario Karajallo](https://karajallo.com).
 
- **Licencia**
+## Licencia
 
 Este proyecto está bajo la licencia MIT. Véase `LICENSE.md` para más detalles.
 
